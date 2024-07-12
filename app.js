@@ -18,6 +18,7 @@ const cron = require("node-cron");
 const User = require("./models/User");
 const { getWeatherData } = require("./services/weatherService");
 const { sendWeatherReport } = require("./utils/emailService");
+const { generateWeatherText } = require("./services/weatherTextService");
 
 cron.schedule("0 0 */3 * * *", async () => {
   try {
