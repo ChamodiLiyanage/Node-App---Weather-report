@@ -35,7 +35,7 @@ exports.updateUserLocation = async (req, res) => {
     await user.save();
 
     const weatherData = await getWeatherData(location);
-    user.weatherData.push({ date: new Date(), data: weatherData });
+    user.weatherData = [{ date: new Date(), data: weatherData }];
     await user.save();
 
     res.json(user);
